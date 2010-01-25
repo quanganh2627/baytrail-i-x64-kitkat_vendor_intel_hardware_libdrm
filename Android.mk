@@ -25,15 +25,7 @@ LOCAL_SRC_FILES := $(common_SRC_FILES)
 LOCAL_CFLAGS += $(common_CFLAGS)
 LOCAL_C_INCLUDES += $(common_C_INCLUDES)
 
-LOCAL_COPY_HEADERS_TO := libdrm
-
-LOCAL_COPY_HEADERS := \
-	libdrm/xf86drm.h \
-	libdrm/xf86drmMode.h \
-	shared-core/drm.h \
-	shared-core/drm_mode.h \
-	shared-core/drm_sarea.h \
-	shared-core/i915_drm.h
+LOCAL_COPY_HEADERS := libdrm/xf86drm.h libdrm/xf86drmMode.h
 
 LOCAL_MODULE := libdrm
 
