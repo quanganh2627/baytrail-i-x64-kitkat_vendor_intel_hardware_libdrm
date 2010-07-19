@@ -18,7 +18,7 @@ endif
 common_CFLAGS := -W -g -DPLATFORM_ANDROID
 
 common_C_INCLUDES +=\
-    $(TOPDIR)kernel/include/drm
+    $(TOPDIR)hardware/intel/include/drm
 
 LOCAL_SRC_FILES := $(common_SRC_FILES)
 LOCAL_CFLAGS += $(common_CFLAGS)
@@ -41,7 +41,7 @@ common_SRC_FILES := tests/dristat.c
 common_CFLAGS := -W -g -DPLATFORM_ANDROID
 
 common_C_INCLUDES +=\
-    $(TOPDIR)kernel/include/drm \
+    $(TOPDIR)hardware/intel/include/drm \
     $(LOCAL_PATH)/libdrm
 
 LOCAL_SRC_FILES := $(common_SRC_FILES)
@@ -63,7 +63,7 @@ common_SRC_FILES := tests/drmstat.c
 common_CFLAGS := -W -g -DPLATFORM_ANDROID
 
 common_C_INCLUDES +=\
-    $(TOPDIR)kernel/include/drm
+    $(TOPDIR)hardware/intel/include/drm
 
 LOCAL_SRC_FILES := $(common_SRC_FILES)
 LOCAL_CFLAGS += $(common_CFLAGS)
