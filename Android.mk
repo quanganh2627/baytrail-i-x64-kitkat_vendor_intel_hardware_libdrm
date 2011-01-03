@@ -27,6 +27,7 @@ LOCAL_C_INCLUDES += $(common_C_INCLUDES)
 LOCAL_COPY_HEADERS := libdrm/xf86drm.h libdrm/xf86drmMode.h
 
 LOCAL_MODULE := libdrm
+LOCAL_MODULE_TAGS := optional
 
 ifeq ($(TARGET_OS)-$(TARGET_ARCH),linux-x86)
 LOCAL_CFLAGS += -DUSTL_ANDROID_X86
@@ -49,6 +50,7 @@ LOCAL_CFLAGS += $(common_CFLAGS)
 LOCAL_C_INCLUDES += $(common_C_INCLUDES)
 
 LOCAL_MODULE := dristat
+LOCAL_MODULE_TAGS := optional
 
 ifeq ($(TARGET_OS)-$(TARGET_ARCH),linux-x86)
 LOCAL_CFLAGS += -DUSTL_ANDROID_X86
@@ -70,6 +72,7 @@ LOCAL_CFLAGS += $(common_CFLAGS)
 LOCAL_C_INCLUDES += $(common_C_INCLUDES)
 LOCAL_SHARED_LIBRARIES := libdrm
 LOCAL_MODULE := drmstat
+LOCAL_MODULE_TAGS := optional
 
 ifeq ($(TARGET_OS)-$(TARGET_ARCH),linux-x86)
 LOCAL_CFLAGS += -DUSTL_ANDROID_X86
