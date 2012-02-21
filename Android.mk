@@ -37,45 +37,4 @@ include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
 
-common_SRC_FILES := tests/dristat.c
 
-common_CFLAGS := -W -g -DPLATFORM_ANDROID
-
-common_C_INCLUDES +=\
-    $(TOPDIR)hardware/intel/include/drm \
-    $(LOCAL_PATH)/libdrm
-
-LOCAL_SRC_FILES := $(common_SRC_FILES)
-LOCAL_CFLAGS += $(common_CFLAGS)
-LOCAL_C_INCLUDES += $(common_C_INCLUDES)
-
-LOCAL_MODULE := dristat
-LOCAL_MODULE_TAGS := optional
-
-ifeq ($(TARGET_OS)-$(TARGET_ARCH),linux-x86)
-LOCAL_CFLAGS += -DUSTL_ANDROID_X86
-endif
-
-include $(BUILD_EXECUTABLE)
-
-include $(CLEAR_VARS)
-
-common_SRC_FILES := tests/drmstat.c
-
-common_CFLAGS := -W -g -DPLATFORM_ANDROID
-
-common_C_INCLUDES +=\
-    $(TOPDIR)hardware/intel/include/drm
-
-LOCAL_SRC_FILES := $(common_SRC_FILES)
-LOCAL_CFLAGS += $(common_CFLAGS)
-LOCAL_C_INCLUDES += $(common_C_INCLUDES)
-LOCAL_SHARED_LIBRARIES := libdrm
-LOCAL_MODULE := drmstat
-LOCAL_MODULE_TAGS := optional
-
-ifeq ($(TARGET_OS)-$(TARGET_ARCH),linux-x86)
-LOCAL_CFLAGS += -DUSTL_ANDROID_X86
-endif
-
-include $(BUILD_EXECUTABLE)
