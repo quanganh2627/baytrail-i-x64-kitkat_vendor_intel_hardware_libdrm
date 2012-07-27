@@ -1,5 +1,7 @@
 LOCAL_PATH:= $(call my-dir)
 
+ifeq ($(ENABLE_IMG_GRAPHICS),true)
+
 common_CFLAGS := -W -g -DPLATFORM_ANDROID
 common_C_INCLUDES +=  \
    $(TARGET_OUT_HEADERS)/drm \
@@ -56,3 +58,4 @@ LOCAL_COPY_HEADERS := \
 LOCAL_COPY_HEADERS_TO := libdrm/shared-core
 include $(BUILD_COPY_HEADERS)
 
+endif
