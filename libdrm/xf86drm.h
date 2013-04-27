@@ -34,6 +34,10 @@
 #ifndef _XF86DRM_H_
 #define _XF86DRM_H_
 
+#if defined(__cplusplus) || defined(c_plusplus)
+extern "C" {
+#endif
+
 #include <stdarg.h>
 #include <sys/types.h>
 #include <stdint.h>
@@ -666,5 +670,9 @@ extern void drmMsg(const char *format, ...);
 
 extern int drmSetMaster(int fd);
 extern int drmDropMaster(int fd);
+
+#if defined(__cplusplus) || defined(c_plusplus)
+}
+#endif
 
 #endif

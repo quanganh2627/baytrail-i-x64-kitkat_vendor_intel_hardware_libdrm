@@ -32,6 +32,12 @@
  * IN THE SOFTWARE.
  *
  */
+#ifndef _XF86DRMMODE_H_
+#define _XF86DRMMODE_H_
+
+#if defined(__cplusplus) || defined(c_plusplus)
+extern "C" {
+#endif
 
 #include <drm.h>
 
@@ -365,3 +371,9 @@ extern int drmModeCrtcSetGamma(int fd, uint32_t crtc_id, uint32_t size,
 			       uint16_t *red, uint16_t *green, uint16_t *blue);
 extern int drmModeCrtcGetGamma(int fd, uint32_t crtc_id, uint32_t size,
 			       uint16_t *red, uint16_t *green, uint16_t *blue);
+
+#if defined(__cplusplus) || defined(c_plusplus)
+}
+#endif
+
+#endif
