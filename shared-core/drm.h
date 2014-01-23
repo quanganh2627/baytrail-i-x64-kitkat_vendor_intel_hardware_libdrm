@@ -115,7 +115,7 @@
 #define _DRM_LOCKING_CONTEXT(lock) ((lock) & ~(_DRM_LOCK_HELD|_DRM_LOCK_CONT))
 
 #if defined(__linux__)
-typedef unsigned int drm_handle_t;
+typedef unsigned long int drm_handle_t;
 #else
 #include <sys/types.h>
 typedef unsigned long drm_handle_t;	/**< To mapped regions */
