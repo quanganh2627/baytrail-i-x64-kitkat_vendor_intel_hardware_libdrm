@@ -297,6 +297,13 @@ extern drmModeFBPtr drmModeGetFB(int fd, uint32_t bufferId);
 extern int drmModeAddFB(int fd, uint32_t width, uint32_t height, uint8_t depth,
 			uint8_t bpp, uint32_t pitch, uint32_t bo_handle,
 			uint32_t *buf_id);
+
+/* ...with a specific pixel format */
+extern int drmModeAddFB2(int fd, uint32_t width, uint32_t height,
+			 uint32_t pixel_format, uint32_t bo_handles[4],
+			 uint32_t pitches[4], uint32_t offsets[4],
+			 uint32_t *buf_id, uint32_t flags);
+
 /**
  * Destroies the given framebuffer.
  */
