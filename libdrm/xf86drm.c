@@ -322,7 +322,7 @@ static int drmOpenDevice(long dev, int minor, int type)
     uid_t           user    = DRM_DEV_UID;
     gid_t           group   = DRM_DEV_GID, serv_group;
     
-    sprintf(buf, type ? DRM_DEV_NAME : DRM_CONTROL_DEV_NAME, DRM_DIR_NAME, minor);
+    snprintf(buf, sizeof(buf), type ? DRM_DEV_NAME : DRM_CONTROL_DEV_NAME, DRM_DIR_NAME, minor);
     drmMsg("drmOpenDevice: node name is %s\n", buf);
 
     if (drm_server_info) {
@@ -428,8 +428,8 @@ static int drmOpenMinor(int minor, int create, int type)
     
     if (create)
 	return drmOpenDevice(makedev(DRM_MAJOR, minor), minor, type);
-    
-    sprintf(buf, type ? DRM_DEV_NAME : DRM_CONTROL_DEV_NAME, DRM_DIR_NAME, minor);
+
+    snprintf(buf, sizeof(buf), type ? DRM_DEV_NAME : DRM_CONTROL_DEV_NAME, DRM_DIR_NAME, minor);
     if ((fd = open(buf, O_RDWR, 0)) >= 0)
 	return fd;
     return -errno;
@@ -583,11 +583,11 @@ static int drmOpenByName(const char *name)
 	char *driver, *pt, *devstring;
 	int  retcode;
 	
-	sprintf(proc_name, "/proc/dri/%d/name", i);
+	snprintf(proc_name, sizeof(proc_name), "/proc/dri/%d/name", i);
 	if ((fd = open(proc_name, 0, 0)) >= 0) {
 	    retcode = read(fd, buf, sizeof(buf)-1);
 	    close(fd);
-	    if (retcode) {
+	    if (retcode > 0) {
 		buf[retcode-1] = '\0';
 		for (driver = pt = buf; *pt && *pt != ' '; ++pt)
 		    ;
